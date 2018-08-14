@@ -5,6 +5,7 @@ from collections import Counter
 import re
 
 
+
 pdfo = open("HerminioVazquez_CV.pdf", "rb")
 pdfr = PyPDF2.PdfFileReader(pdfo)
 
