@@ -16,5 +16,6 @@ RUN pip install opencv-python
 RUN pip install pillow
 RUN pip install image
 RUN pip install scikit-learn
+RUN pip install Flask
 
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger');"

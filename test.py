@@ -2,6 +2,7 @@
 from docx import Document
 import textblob
 import nltk
+import re
 from collections import Counter
 
 
@@ -12,7 +13,7 @@ doc = Document(f)
 
 paragraphs = [x.text for x in doc.paragraphs if x != '']
 
-all = "\n".join([x.replace("\t","") for x in paragraphs])
+all = "\n".join([re.sub('[^a-zA-Z0-9\n\.]',' ',x.replace("\t","")) for x in paragraphs])
 
 blob = textblob.TextBlob(all)
 
@@ -44,6 +45,7 @@ for v in verbs:
 
 
 print(Counter(lemmatized))
+print(Counter(verbs))
 # Subjectivity
 print(f'Subjectivity: {round(blob.subjectivity*100,2)}%')
 print(f'Objectivity: {100-round(blob.subjectivity*100,2)}%')
