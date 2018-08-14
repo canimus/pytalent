@@ -5,11 +5,8 @@ import nltk
 import re
 from collections import Counter
 
-
-
 f = open("KT_New_v1.docx", "rb")
 doc = Document(f)
-
 
 paragraphs = [x.text for x in doc.paragraphs if x != '']
 
